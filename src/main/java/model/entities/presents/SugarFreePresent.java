@@ -1,4 +1,8 @@
-package model;
+package model.entities.presents;
+
+import model.entities.present_containers.Box;
+import model.entities.present_items.IPresentItem;
+import model.entities.present_items.Sweety;
 
 /**
  * Created by Yuliia Tesliuk on 11/01/2018
@@ -12,8 +16,8 @@ public class SugarFreePresent extends Present {
 
     @Override
     public boolean addToPresent(IPresentItem item, int number) {
-        if(isSugarFree(item) && isEnoughSpace(item,number)) {
-            this.present.put(item,number);
+        if(isSugarFree(item) && this.hasEnoughSpace(item,number)) {
+            this.packagedPresent.put(item,number);
             this.weight += item.getWeight() * number;
             return true;
         }

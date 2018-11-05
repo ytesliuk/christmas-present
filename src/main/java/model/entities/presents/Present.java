@@ -1,4 +1,7 @@
-package model;
+package model.entities.presents;
+
+import model.entities.present_containers.IPresentContainer;
+import model.entities.present_items.IPresentItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,13 +12,13 @@ import java.util.Map;
 public abstract class Present {
     protected int weight;
     protected IPresentContainer container;
-    protected Map<IPresentItem,Integer> present = new HashMap<>();
+    protected Map<IPresentItem,Integer> packagedPresent = new HashMap<>();
 
     public int getWeight(){
         return weight;
     }
 
-    protected boolean isEnoughSpace(IPresentItem item, int number){
+    protected boolean hasEnoughSpace(IPresentItem item, int number){
         return (this.weight + item.getWeight() * number) <= container.getMaxWeight();
     }
 

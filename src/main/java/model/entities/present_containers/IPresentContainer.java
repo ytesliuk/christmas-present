@@ -1,7 +1,7 @@
-package model;
+package model.entities.present_containers;
 
 /**
- * Implementing this interface allows an object to be included into a present.
+ * Implementing this interface allows an object to be a container for present items in present.
  */
 public interface IPresentContainer {
     /**

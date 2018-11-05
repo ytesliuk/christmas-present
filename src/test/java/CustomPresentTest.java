@@ -1,7 +1,7 @@
-import model.CustomPresent;
-import model.IPresentItem;
-import model.Present;
-import model.Sweety;
+import model.entities.presents.CustomPresent;
+import model.entities.present_items.IPresentItem;
+import model.entities.presents.Present;
+import model.entities.present_items.Sweety;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,10 +20,10 @@ class CustomPresentTest {
     @BeforeAll
     static void resourceInitialization(){
         items = new ArrayList<>();
-        items.add(new Sweety("ромашка",50,10));
-        items.add(new Sweety("гвоздичка",45,0));
-        items.add(new Sweety("незабудка",30,14));
-        items.add(new Sweety("одуванчик",38,5));
+//        items.add(new Sweety("ромашка",50,10));
+//        items.add(new Sweety("гвоздичка",45,0));
+//        items.add(new Sweety("незабудка",30,14));
+//        items.add(new Sweety("одуванчик",38,5));
     }
 
 

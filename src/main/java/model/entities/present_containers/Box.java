@@ -1,9 +1,13 @@
-package model;
+package model.entities.present_containers;
+
 
 /**
- * Created by Yuliia Tesliuk on 11/01/2018
+ * A form of container for present items
  */
-public class Box implements IPresentContainer {
+public class Box implements IPresentContainer{
+    /**
+     * Maximum weight which a particular box can hold
+     */
     private int maxWeight;
     // private int utilizedWeight;   -?
 
@@ -15,8 +19,6 @@ public class Box implements IPresentContainer {
     public int getMaxWeight() {
         return maxWeight;
     }
-    public void setMaxWeight(int maxWeight) {
-        this.maxWeight = maxWeight;
-    }
+
 
 }
