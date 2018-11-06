@@ -1,25 +1,26 @@
 package model.entities.presents;
 
+import javafx.util.Pair;
 import model.entities.present_containers.Box;
 import model.entities.present_items.IPresentItem;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Yuliia Tesliuk on 11/02/2018
  */
-public class CustomPresent extends Present {
+public class CustomPresent extends Present<CustomPresent, Pair<IPresentItem,Integer>> {
 
 
-    public CustomPresent(int weight){
+    public CustomPresent(){
         this.container = new Box(weight);
     }
 
+
     @Override
-    public boolean addToPresent(IPresentItem item, int number) {
-        if(this.hasEnoughSpace(item,number)) {
-            this.packagedPresent.put(item,number);
-            this.weight += item.getWeight() * number;
-            return true;
-        }
-        return false;
+    public CustomPresent createPresent(List<Pair<IPresentItem,Integer>> list) {
+
+        return this;
     }
 }

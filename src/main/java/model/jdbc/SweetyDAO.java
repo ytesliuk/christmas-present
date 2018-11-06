@@ -43,16 +43,17 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
             if (resSet.next()) {
                 sweety.setID(resSet.getInt("GENERATED_KEY"));
             }
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @IDSetter
     @Override
-    public Sweety read(String name) throws SQLException{
+    public Sweety read(String name){
         try {
             PreparedStatement statement = connection.prepareStatement(READ);
             statement.setString(1, name);
@@ -76,7 +77,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
     }
 
     @IDSetter
-    public List<Sweety> readAll() throws SQLException{
+    public List<Sweety> readAll(){
         List<Sweety> sweeties = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();

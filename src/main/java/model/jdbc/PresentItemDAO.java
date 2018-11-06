@@ -1,6 +1,6 @@
 package model.jdbc;
 
-import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by Yuliia Tesliuk on 11/04/2018
@@ -8,7 +8,9 @@ import java.sql.SQLException;
 public interface PresentItemDAO<Entity, Key> {
     boolean create(Entity model);
 
-    Entity read(Key key) throws SQLException;
+    Entity read(Key key);
+
+    List<Entity> readAll();
 
     boolean update(Entity model);
 

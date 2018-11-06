@@ -16,4 +16,10 @@ public interface IPresentItem{
      * @return price of a single item in the present
      */
     int getPrice();
+
+    String getName();
+
+    default int getSugarContent(){
+        return 0;
+    }
 }
