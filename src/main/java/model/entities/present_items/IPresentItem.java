@@ -19,7 +19,8 @@ public interface IPresentItem{
 
     String getName();
 
-    default int getSugarContent(){
+    default double getSugarContent(){
         return 0;
     }
+
 }

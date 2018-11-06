@@ -35,7 +35,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
             statement.setInt(1, sweety.getID());
             statement.setString(2, sweety.getName());
             statement.setInt(3, sweety.getWeight());
-            statement.setInt(4, sweety.getSugarContent());
+            statement.setDouble(4, sweety.getSugarContent());
             statement.setInt(5, sweety.getPrice());
 
             statement.execute();
@@ -64,7 +64,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
                 int id = resSet.getInt("id");
                 String sweetyName = resSet.getString("name");
                 int weight = resSet.getInt("weight");
-                int sugarContext = resSet.getInt("sugarContent");
+                double sugarContext = resSet.getDouble("sugarContent");
                 int price = resSet.getInt("price");
                 Sweety newSweety = new Sweety(sweetyName, weight, sugarContext, price);
                 newSweety.setID(id);
@@ -87,7 +87,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
                 int id = resSet.getInt("id");
                 String sweetyName = resSet.getString("name");
                 int weight = resSet.getInt("weight");
-                int sugarContext = resSet.getInt("sugarContent");
+                double sugarContext = resSet.getDouble("sugarContent");
                 int price = resSet.getInt("price");
                 Sweety newSweety = new Sweety(sweetyName, weight, sugarContext, price);
                 newSweety.setID(id);
@@ -105,7 +105,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
             PreparedStatement statement = connection.prepareStatement(UPDATE);
             statement.setString(1,sweety.getName());
             statement.setInt(2,sweety.getWeight());
-            statement.setInt(3,sweety.getSugarContent());
+            statement.setDouble(3,sweety.getSugarContent());
             statement.setInt(4,sweety.getPrice());
             statement.setInt(5,sweety.getID());
 

@@ -10,14 +10,16 @@
 </head>
 <body>
 
+
+
 <form method="post" action="/constructor">
-    <label style="width: 100px"> Weight </label>
+    <label style="width: 1500px"> Weight, g </label>
     <input type="text" name="minWeight">
     <input type="text" name="maxWeight"></br>
-    <label style="width: 100px"> Sugar content </label>
+    <label style="width: 1500px"> Sugar content, % </label>
     <input type="text" name="minSugar">
     <input type="text" name="maxSugar"></br>
-    <label style="width: 100px"> Price </label>
+    <label style="width: 150px"> Price, UAH </label>
     <input type="text" name="minPrice">
     <input type="text" name="maxPrice"></label><br/>
 
@@ -31,8 +33,8 @@
 
 <label style="width: 200px">Name</label>
 <label style="width: 100px">Weight, g</label>
-<label style="width: 120px">Sugar content, g</label>
-<label style="width: 100px">Price</label>
+<label style="width: 120px">Sugar content, %</label>
+<label style="width: 100px">Price, UAH</label>
 <label style="width: 100px">Quantity</label>
 
 <hr/>
@@ -49,7 +51,7 @@
             <c:out value="${sweety.sugarContent}"/>
         </label>
         <label style="width: 100px">
-            <c:out value="${sweety.price}"/>
+            <c:out value="${sweety.priceUAH}"/>
         </label>
         <label style="width: 100px"><input type="text" name="qty"></label>
         <br/>

@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * Created by Yuliia Tesliuk on 11/02/2018
  */
-public class Main {
+public class MainTest {
     public static void main(String[] args){
         DBConnection dbConnection = new DBConnection();
 

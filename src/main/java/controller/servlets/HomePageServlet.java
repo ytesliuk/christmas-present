@@ -40,16 +40,19 @@ public class HomePageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF8");
+        createSweety(req,resp);
+        doGet(req,resp);
+    }
 
+    private void createSweety(HttpServletRequest req, HttpServletResponse resp){
         String name = req.getParameter("name");
         int weight = Integer.parseInt(req.getParameter("weight"));
-        int sugarContent = Integer.parseInt(req.getParameter("sugarContent"));
+        double sugarContent = Double.parseDouble(req.getParameter("sugarContent"));
         int price = (int) (Double.parseDouble(req.getParameter("price")) * 100);
 
         Sweety newSweety = new Sweety(name, weight, sugarContent, price);
         itemDAO.create(newSweety);
         sweeties.add(newSweety);
-        doGet(req,resp);
     }
 
 }

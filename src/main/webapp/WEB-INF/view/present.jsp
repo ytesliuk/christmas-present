@@ -24,8 +24,8 @@ xmlns:width="http://www.w3.org/1999/xhtml">
 
 <label style="width: 200px">Name</label>
 <label style="width: 100px">Weight, g</label>
-<label style="width: 120px">Sugar content, g</label>
-<label style="width: 100px">Price</label>
+<label style="width: 120px">Sugar content, %</label>
+<label style="width: 100px">Price, UAH</label>
 <label style="width: 100px">Quantity</label>
 
     <hr />
@@ -35,7 +35,7 @@ xmlns:width="http://www.w3.org/1999/xhtml">
         <label style="width: 200px" ><c:out value="${sweety.key.name}"/></label>
         <label style="width: 100px" ><c:out value="${sweety.key.weight}"/></label>
         <label style="width: 120px" ><c:out value="${sweety.key.sugarContent}"/></label>
-        <label style="width: 100px" ><c:out value="${sweety.key.price}"/></label>
+        <label style="width: 100px" ><c:out value="${sweety.key.priceUAH}"/></label>
         <label style="width: 100px" ><c:out value="${sweety.value}"/></label>
     <br />
 </c:forEach>

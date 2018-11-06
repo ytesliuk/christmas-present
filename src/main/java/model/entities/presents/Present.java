@@ -11,6 +11,7 @@ import java.util.Map;
  * Created by Yuliia Tesliuk on 11/01/2018
  */
 public abstract class Present<T,V> {
+    public static final int DEFAULT_WEIGHT = 500;
     protected int weight;
     protected IPresentContainer container;
     protected Map<IPresentItem,Integer> packagedPresent = new HashMap<>();

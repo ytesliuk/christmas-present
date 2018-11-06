@@ -14,14 +14,15 @@ public class Sweety implements IPresentItem {
     private int id;
     private String name;
     private int weight;
-    private int sugarContent;
+    private double sugarContent;
     private int price;
 
 
-    public Sweety(String name, int weight, int sugarContent, int price) {
+    public Sweety(String name, int weight, double sugarContent, int price) {
         this.name = name;
         this.weight = weight;
         this.sugarContent = sugarContent;
+        System.out.println(sugarContent);
         this.price = price;
     }
 
@@ -59,7 +60,7 @@ public class Sweety implements IPresentItem {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-    public int getSugarContent() {
+    public double getSugarContent() {
         return sugarContent;
     }
     public void setSugarContent(int sugarContent) {
@@ -73,6 +74,9 @@ public class Sweety implements IPresentItem {
         this.price = price;
     }
 
+    public double getPriceUAH(){
+        return ((double) getPrice()) / 100;
+    }
 
     @Override
     public String toString() {
