@@ -29,22 +29,18 @@ public class Main {
         sweety.create(newSweety2);
         sweety.create(newSweety3);
 
-        System.out.println(newSweety.toString());
-        System.out.println(newSweety2.toString());
-        System.out.println(newSweety3.toString());
+//        System.out.println(newSweety.toString());
+//        System.out.println(newSweety2.toString());
+//        System.out.println(newSweety3.toString());
 
 //
 //        newSweety.setSugarContent(5);
 //        sweety.update(newSweety);
 
-        try {
             Optional<Sweety> sweety2 = Optional.ofNullable(sweety.read("Белочка"));
             sweety2.ifPresent(sweety::delete);
-
-
-        } catch (SQLException e) {
             System.out.println("not found");
-        }
+
 
 
     }
