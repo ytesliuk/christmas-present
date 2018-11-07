@@ -1,35 +1,38 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 
 <html lang="en"
 xmlns:display="http://www.w3.org/1999/xhtml"
 xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Create present</title>
+    <fmt:setBundle basename="messages_ua" var="lang"/>
+    <title><fmt:message key="PresentPage" bundle="${lang}"/></title>
 </head>
 <body>
 
+<h2><fmt:message key="SortLabel" bundle="${lang}"/></h2>
 <form method = "get" action="">
     <input type="hidden" name="command" value="Sort">
 
-    <input type="radio" name="sort" value="sortByQTY"> Sort by quantity<br>
-    <input type="radio" name="sort" value="sortByWeight"> Sort by weight<br>
-    <input type="radio" name="sort" value="sortBySugarContent"> Sort by sugar content<br>
-    <input type="radio" name="sort" value="sortByPrice"> Sort by price<br>
+    <input type="radio" name="sort" value="sortByQTY"><fmt:message key="sortByQTY" bundle="${lang}"/><br>
+    <input type="radio" name="sort" value="sortByWeight"><fmt:message key="sortByWeight" bundle="${lang}"/><br>
+    <input type="radio" name="sort" value="sortBySugarContent"><fmt:message key="sortBySugarContent" bundle="${lang}"/><br>
+    <input type="radio" name="sort" value="sortByPrice"><fmt:message key="sortByPrice" bundle="${lang}"/><br>
 
-    <button type="submit">Sort</button>
+    <button type="submit"><fmt:message key="Sort" bundle="${lang}"/></button>
 </form>
 
 
-<h1>Sweets:</h1>
+<h2><fmt:message key="PresentContent" bundle="${lang}"/>:</h2>
 
-<label style="width: 200px">Name</label>
-<label style="width: 100px">Weight, g</label>
-<label style="width: 120px">Sugar content, %</label>
-<label style="width: 100px">Price, UAH</label>
-<label style="width: 100px">Quantity</label>
-
+    <label style="width: 200px"><fmt:message key="Name" bundle="${lang}"/></label>
+    <label style="width: 100px"><fmt:message key="WeightG" bundle="${lang}"/></label>
+    <label style="width: 120px"><fmt:message key="SugarContent" bundle="${lang}"/>, %</label>
+    <label style="width: 100px"><fmt:message key="PriceUAH" bundle="${lang}"/></label>
+    <label style="width: 200px"><fmt:message key="QuantityUnit" bundle="${lang}"/></label>
     <hr />
 
 
@@ -43,7 +46,7 @@ xmlns:width="http://www.w3.org/1999/xhtml">
 </c:forEach>
 
     <br />
-    <h2>Total weight: <c:out value="${requestScope.weight}"/></h2>
+    <h3><fmt:message key="TotalWeight" bundle="${lang}"/>: <c:out value="${requestScope.weight}"/></h3>
 
 </body>
 </html>
