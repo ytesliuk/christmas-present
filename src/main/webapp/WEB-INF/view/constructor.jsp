@@ -8,12 +8,13 @@
       xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <fmt:setBundle basename="messages_ua" var="lang"/>
+    <fmt:setBundle basename="messages_${sessionScope.lang}" var="lang"/>
     <title><fmt:message key="ConstructorPage" bundle="${lang}"/></title>
 
 
 </head>
 <body>
+
 
 <h2><fmt:message key="FilterLabel" bundle="${lang}"/></h2>
 
@@ -33,9 +34,9 @@
     <button type="submit"><fmt:message key="Filter" bundle="${lang}"/></button>
 </form>
 <form method="get" action="">
-    <input type="hidden" name="command" value="CreatePresent">
+    <input type="hidden" name="command" value="Filter">
 
-    <button type="submit">Reset</button>
+    <button type="submit"><fmt:message key="reset" bundle="${lang}"/></button>
 </form>
 
 

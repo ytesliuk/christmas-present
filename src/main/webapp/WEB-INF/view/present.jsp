@@ -8,10 +8,11 @@ xmlns:display="http://www.w3.org/1999/xhtml"
 xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <fmt:setBundle basename="messages_ua" var="lang"/>
+    <fmt:setBundle basename="messages_${sessionScope.lang}" var="lang"/>
     <title><fmt:message key="PresentPage" bundle="${lang}"/></title>
 </head>
 <body>
+
 
 <h2><fmt:message key="SortLabel" bundle="${lang}"/></h2>
 <form method = "get" action="">

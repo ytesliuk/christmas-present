@@ -18,6 +18,15 @@ public class SessionStartCommand extends Command {
         itemDAO = new SweetyDAO(db.getConnection());
         sweeties = itemDAO.readAll().stream().map(x -> (IPresentItem) x).collect(Collectors.toList());
 
+        if(req.getParameter("lang") == null){
+            session.setAttribute("lang","ua");
+        } else {
+            session.setAttribute("lang",req.getParameter("lang"));
+            System.out.println("here");
+        }
+
+
+
         //req.setAttribute("sweeties",sweeties);
         session.setAttribute("sweeties",sweeties);
 
