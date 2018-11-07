@@ -10,7 +10,9 @@ xmlns:width="http://www.w3.org/1999/xhtml">
 </head>
 <body>
 
-<form method = "post" action="/present">
+<form method = "get" action="">
+    <input type="hidden" name="command" value="Sort">
+
     <input type="radio" name="sort" value="sortByQTY"> Sort by quantity<br>
     <input type="radio" name="sort" value="sortByWeight"> Sort by weight<br>
     <input type="radio" name="sort" value="sortBySugarContent"> Sort by sugar content<br>
@@ -31,7 +33,7 @@ xmlns:width="http://www.w3.org/1999/xhtml">
     <hr />
 
 
-<c:forEach var="sweety" items="${requestScope.sweeties}">
+<c:forEach var="sweety" items="${sessionScope.presentContent}">
         <label style="width: 200px" ><c:out value="${sweety.key.name}"/></label>
         <label style="width: 100px" ><c:out value="${sweety.key.weight}"/></label>
         <label style="width: 120px" ><c:out value="${sweety.key.sugarContent}"/></label>
@@ -42,7 +44,6 @@ xmlns:width="http://www.w3.org/1999/xhtml">
 
     <br />
     <h2>Total weight: <c:out value="${requestScope.weight}"/></h2>
-
 
 </body>
 </html>

@@ -1,11 +1,9 @@
-import model.entities.presents.CustomPresent;
-import model.entities.present_items.IPresentItem;
-import model.entities.presents.Present;
-import model.entities.present_items.Sweety;
+import com.present.model.entities.presents.CustomPresent;
+import com.present.model.entities.present_items.IPresentItem;
+import com.present.model.entities.presents.Present;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
