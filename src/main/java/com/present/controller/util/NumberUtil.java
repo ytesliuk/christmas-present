@@ -5,7 +5,7 @@ import java.util.regex.*;
 /**
  * Created by Yuliia Tesliuk on 11/06/2018
  */
-public class Util {
+public class NumberUtil {
     public static boolean isWithinBounds(int value, int min, int max){
         return value >= min && value <= max;
     }

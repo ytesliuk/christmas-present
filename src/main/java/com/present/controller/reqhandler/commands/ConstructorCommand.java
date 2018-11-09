@@ -1,4 +1,4 @@
-package com.present.controller.servlets.commands;
+package com.present.controller.reqhandler.commands;
 
 import javax.servlet.ServletException;
 import java.io.IOException;

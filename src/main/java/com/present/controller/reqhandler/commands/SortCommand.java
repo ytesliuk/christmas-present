@@ -1,4 +1,4 @@
-package com.present.controller.servlets.commands;
+package com.present.controller.reqhandler.commands;
 
 import com.present.model.entities.present_items.IPresentItem;
 import com.present.model.entities.presents.Present;
@@ -19,25 +19,23 @@ public class SortCommand extends Command {
     public void process() throws ServletException, IOException {
         Present present = (Present) session.getAttribute("present");
 
-        req.setCharacterEncoding("UTF8");
+        List<Map.Entry<IPresentItem, Integer>> sortedPresent = sort(present.getPackagedPresent());
 
+        session.setAttribute("presentContent", sortedPresent);
+        req.setAttribute("weight", present.getWeight());
+        req.getRequestDispatcher("/WEB-INF/view/present.jsp").forward(req, resp);
+    }
+
+    private List<Map.Entry<IPresentItem, Integer>> sort(Map<IPresentItem, Integer> packagedPresent){
         String sortCriteria = req.getParameter("sort");
 
-        List<Map.Entry<IPresentItem, Integer>> sortedPresent = present.getPackagedPresent()
-                .entrySet()
-                .stream()
+        return packagedPresent.entrySet().stream()
                 .sorted(Comparator.comparing(x ->
                         (sortCriteria.equals("sortByQTY")) ? x.getValue() :
                         (sortCriteria.equals("sortByWeight")) ? x.getKey().getWeight() :
                         (sortCriteria.equals("sortByPrice")) ? x.getKey().getPrice() :
                         (sortCriteria.equals("sortBySugarContent")) ? (int)(x.getKey().getSugarContent() * 100) :
-                        x.getKey().getName().charAt(0),Comparator.reverseOrder()))
+                         x.getKey().getName().charAt(0),Comparator.reverseOrder()))
                 .collect(Collectors.toList());
-
-
-        session.setAttribute("presentContent", sortedPresent);
-        req.setAttribute("weight", present.getWeight());
-        req.getRequestDispatcher("/WEB-INF/view/present.jsp").forward(req, resp);
-
     }
 }

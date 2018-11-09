@@ -1,7 +1,6 @@
-package com.present.controller.servlets.commands;
+package com.present.controller.reqhandler.commands;
 
 import com.present.model.entities.present_items.IPresentItem;
-import com.present.model.entities.present_items.Sweety;
 import com.present.model.jdbc.DBConnection;
 import com.present.model.jdbc.PresentItemDAO;
 
@@ -19,8 +18,8 @@ public abstract class Command {
     protected HttpServletResponse resp;
     protected HttpSession session;
     protected DBConnection db;
-    protected PresentItemDAO<Sweety, String> itemDAO;
-    protected List<IPresentItem> sweeties;
+    protected PresentItemDAO itemDAO;
+    protected List<IPresentItem> items;
 
 
     public void init(ServletContext context, HttpServletRequest req, HttpServletResponse resp) {
@@ -32,12 +31,5 @@ public abstract class Command {
     }
 
     public abstract void process() throws ServletException, IOException;
-
-    protected void forward(String target)  throws ServletException, IOException{
-        RequestDispatcher dispatcher = req.getRequestDispatcher(target);
-        dispatcher.forward(req, resp);
-    }
-
-
 
 }

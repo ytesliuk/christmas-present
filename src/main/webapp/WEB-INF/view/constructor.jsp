@@ -1,5 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="
+/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
@@ -9,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <fmt:setBundle basename="messages_${sessionScope.lang}" var="lang"/>
+    <fmt:requestEncoding value="UTF-8" />
     <title><fmt:message key="ConstructorPage" bundle="${lang}"/></title>
 
 
@@ -66,7 +68,7 @@
     <button type="submit"><fmt:message key="Create" bundle="${lang}"/></button>
     <hr/>
 
-    <c:forEach var="sweety" items="${sessionScope.sweeties}">
+    <c:forEach var="sweety" items="${sessionScope.items}">
         <label style="width: 200px">
             <c:out value="${sweety.name}"/>
         </label>

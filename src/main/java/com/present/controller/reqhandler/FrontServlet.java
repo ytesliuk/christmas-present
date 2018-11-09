@@ -1,8 +1,8 @@
-package com.present.controller.servlets;
+package com.present.controller.reqhandler;
 
-import com.present.controller.servlets.commands.Command;
-import com.present.controller.servlets.commands.SessionStartCommand;
-import com.present.controller.servlets.commands.UnknownCommand;
+import com.present.controller.reqhandler.commands.Command;
+import com.present.controller.reqhandler.commands.SessionStartCommand;
+import com.present.controller.reqhandler.commands.UnknownCommand;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,12 +18,17 @@ public class FrontServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         process(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF8");
+        resp.setContentType("text/html");
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         process(req,resp);
     }
 
@@ -57,13 +62,12 @@ public class FrontServlet extends HttpServlet {
         } else {
             try{
                 req.getParameter("name");
-                String classFullName = "com.present.controller.servlets.commands." + req.getParameter("command") + "Command";
+                String classFullName = "com.present.controller.reqhandler.commands." + req.getParameter("command") + "Command";
                 commandClazz = Class.forName(classFullName);
             } catch (ClassNotFoundException e){
                 commandClazz = UnknownCommand.class;
             }
         }
-        System.out.println(commandClazz.getName());
         return commandClazz;
     }
 

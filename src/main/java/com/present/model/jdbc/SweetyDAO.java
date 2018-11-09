@@ -1,6 +1,6 @@
 package com.present.model.jdbc;
 
-import com.present.model.entities.present_items.IDSetter;
+import com.present.controller.util.Setter;
 import com.present.model.entities.present_items.Sweety;
 
 import java.sql.*;
@@ -19,8 +19,6 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
 
     private static final String READ_ALL = "SELECT * FROM sweety";
 
-
-
     private final Connection connection;
 
     public SweetyDAO(final Connection connection) {
@@ -28,7 +26,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
     }
 
     @Override
-    @IDSetter
+    @Setter
     public boolean create(Sweety sweety) {
         try {
             PreparedStatement statement = connection.prepareStatement(CREATE, Statement.RETURN_GENERATED_KEYS);
@@ -51,7 +49,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
         }
     }
 
-    @IDSetter
+    @Setter
     @Override
     public Sweety read(String name){
         try {
@@ -76,7 +74,7 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
         return null;
     }
 
-    @IDSetter
+    @Setter
     public List<Sweety> readAll(){
         List<Sweety> sweeties = new ArrayList<>();
         try {

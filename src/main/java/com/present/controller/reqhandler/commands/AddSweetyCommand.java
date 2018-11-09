@@ -1,9 +1,7 @@
-package com.present.controller.servlets.commands;
+package com.present.controller.reqhandler.commands;
 
 import com.present.model.entities.present_items.IPresentItem;
 import com.present.model.entities.present_items.Sweety;
-import com.present.model.jdbc.DBConnection;
-import com.present.model.jdbc.PresentItemDAO;
 import com.present.model.jdbc.SweetyDAO;
 
 import javax.servlet.ServletException;
@@ -25,12 +23,11 @@ public class AddSweetyCommand extends Command {
         int price = (int) (Double.parseDouble(req.getParameter("price")) * 100);
 
         Sweety newSweety = new Sweety(name, weight, sugarContent, price);
-        System.out.println(itemDAO.create(newSweety));
+        itemDAO.create(newSweety);
 
-        sweeties = (List<IPresentItem>) session.getAttribute("sweeties");
-        sweeties.add(newSweety);
-        session.setAttribute("sweeties",sweeties);
-        //req.setAttribute("sweeties",sweeties);
+        items = (List<IPresentItem>) session.getAttribute("items");
+        items.add(newSweety);
+        session.setAttribute("items",items);
 
         try {
             req.getRequestDispatcher("/WEB-INF/view/constructor.jsp").forward(req, resp); ;

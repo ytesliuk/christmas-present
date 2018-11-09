@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
@@ -9,6 +9,7 @@ xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <fmt:setBundle basename="messages_${sessionScope.lang}" var="lang"/>
+    <fmt:requestEncoding value="UTF-8" />
     <title><fmt:message key="PresentPage" bundle="${lang}"/></title>
 </head>
 <body>
@@ -47,7 +48,9 @@ xmlns:width="http://www.w3.org/1999/xhtml">
 </c:forEach>
 
     <br />
-    <h3><fmt:message key="TotalWeight" bundle="${lang}"/>: <c:out value="${requestScope.weight}"/></h3>
+    <h3><fmt:message key="TotalWeight" bundle="${lang}"/>: <c:out value="${sessionScope.weight}"/></h3>
+    <h3><fmt:message key="TotalAmount" bundle="${lang}"/>: <c:out value="${sessionScope.price}"/></h3>
+
 
 </body>
 </html>
