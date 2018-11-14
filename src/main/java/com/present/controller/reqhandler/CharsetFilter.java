@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  *
  */
-@WebFilter("")
+@WebFilter("/*")
 public class CharsetFilter implements Filter {
 
     private String encoding;
@@ -27,6 +27,7 @@ public class CharsetFilter implements Filter {
         // Set the default response content type and encoding
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        System.out.print(response.getCharacterEncoding());
 
         next.doFilter(request, response);
     }
