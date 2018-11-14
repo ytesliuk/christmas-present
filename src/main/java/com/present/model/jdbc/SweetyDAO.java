@@ -128,4 +128,13 @@ public class SweetyDAO implements PresentItemDAO<Sweety,String> {
         }
     }
 
+    @Override
+    public void close()  {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

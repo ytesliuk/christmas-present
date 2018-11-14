@@ -1,7 +1,6 @@
 package com.present.controller.reqhandler.commands;
 
 import com.present.model.entities.present_items.IPresentItem;
-import com.present.model.jdbc.DBConnection;
 import com.present.model.jdbc.PresentItemDAO;
 
 import javax.servlet.*;
@@ -17,7 +16,6 @@ public abstract class Command {
     protected HttpServletRequest req;
     protected HttpServletResponse resp;
     protected HttpSession session;
-    protected DBConnection db;
     protected PresentItemDAO itemDAO;
     protected List<IPresentItem> items;
 
@@ -27,7 +25,6 @@ public abstract class Command {
         this.req = req;
         this.resp = resp;
         this.session = req.getSession();
-        db = new DBConnection();
     }
 
     public abstract void process() throws ServletException, IOException;

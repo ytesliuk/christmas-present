@@ -2,6 +2,7 @@ package com.present.controller.reqhandler.commands;
 
 import com.present.model.entities.present_items.IPresentItem;
 import com.present.model.entities.present_items.Sweety;
+import com.present.model.jdbc.DaoFactory;
 import com.present.model.jdbc.SweetyDAO;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ public class AddSweetyCommand extends Command {
 
     @Override
     public void process() throws ServletException, IOException {
-        itemDAO = new SweetyDAO(db.getConnection());
+        itemDAO = DaoFactory.getInstance().createSweetyDAO();
 
         String name = req.getParameter("name");
         int weight = Integer.parseInt(req.getParameter("weight"));

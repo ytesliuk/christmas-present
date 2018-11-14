@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Yuliia Tesliuk on 11/04/2018
  */
-public interface PresentItemDAO<Entity, Key> {
+public interface PresentItemDAO<Entity, Key> extends AutoCloseable{
     boolean create(Entity model);
 
     Entity read(Key key);

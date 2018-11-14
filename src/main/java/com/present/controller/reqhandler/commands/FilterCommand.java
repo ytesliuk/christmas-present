@@ -2,6 +2,7 @@ package com.present.controller.reqhandler.commands;
 
 import com.present.controller.util.NumberUtil;
 import com.present.model.entities.present_items.IPresentItem;
+import com.present.model.jdbc.DaoFactory;
 import com.present.model.jdbc.SweetyDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +21,7 @@ public class FilterCommand extends Command {
 
     @Override
     public void process() throws ServletException, IOException {
-        itemDAO = new SweetyDAO(db.getConnection());
+        itemDAO = DaoFactory.getInstance().createSweetyDAO();
         items = itemDAO.readAll();
 
         List<IPresentItem> filteredItems = filter();

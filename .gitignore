@@ -25,3 +25,6 @@
 hs_err_pid*
 
 /.idea/
+/target/
+ChristmasPresent.iml
+src/main/webapp/homedraft.html
